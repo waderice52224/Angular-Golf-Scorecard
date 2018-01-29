@@ -9,10 +9,16 @@ import {FormsModule} from '@angular/forms';
 import { MatSelectModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import { CardComponent } from './card/card.component';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +26,11 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     FormsModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot([
+      { path: 'welcome', component: AppComponent},
+      { path: 'card', component: CardComponent}
+    ])
   ],
   providers: [
     GolfCourseService

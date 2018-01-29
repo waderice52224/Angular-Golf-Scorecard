@@ -8,7 +8,15 @@ import {ApiRetrn} from './golf-course/api-retrns';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="['/welcome']">Welcome</a></li>
+      <li><a [routerLink]="['/card']">card</a></li>
+    </ul>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
@@ -32,14 +40,18 @@ export class AppComponent implements OnInit {
 }
 
   runThis(courseId: Observable<GolfCourse>) {
-    this.golfCourseService.getCourse(this.selected).subscribe((golfCourses: GolfCourse) => {
-      console.log(golfCourses);
-      this.golfCourse = golfCourses;
+    this.golfCourseService.getCourse(this.selected).subscribe((response: any) => {
+      // console.log(golfCourses);
+      this.golfCourse = response.course;
       // let teeTypes: any = golfCourses.courses;
       // console.log(teeTypes);
       // console.log(this.golfCourses);
       // console.log(this.golfCourses === golfCourses);
     });
+  }
+
+  teeTypes(tee) {
+    console.log(tee);
   }
 }
 
