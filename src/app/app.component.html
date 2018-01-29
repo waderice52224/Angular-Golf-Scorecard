@@ -1,8 +1,13 @@
 <!--need to make this on change-->
 
 <mat-form-field>
-  <mat-select [(value)]="selected" (change)="runThis()">
+  <mat-select [(ngModel)]="selected" (change)="runThis()">
     <mat-option [value]='course.id' class="courses" *ngFor="let course of golfCourses">{{course.name}}</mat-option>
   </mat-select>
 
+</mat-form-field>
+<mat-form-field *ngIf="golfCourse">
+  <mat-select>
+    <mat-option *ngFor="let teeTypes of golfCourse.tee_types">{{teeTypes.tee_type}}</mat-option>
+  </mat-select>
 </mat-form-field>

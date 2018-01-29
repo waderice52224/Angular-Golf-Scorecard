@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(private golfCourseService: GolfCourseService) {
 
   }
-
+  golfCourse: GolfCourse;
 
 
   ngOnInit() {
@@ -30,9 +30,11 @@ export class AppComponent implements OnInit {
       // console.log(this.golfCourses === golfCourses);
     });
 }
+
   runThis(courseId: Observable<GolfCourse>) {
     this.golfCourseService.getCourse(this.selected).subscribe((golfCourses: GolfCourse) => {
       console.log(golfCourses);
+      this.golfCourse = golfCourses;
       // let teeTypes: any = golfCourses.courses;
       // console.log(teeTypes);
       // console.log(this.golfCourses);
