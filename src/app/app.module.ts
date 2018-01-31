@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { CardComponent } from './card/card.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -18,7 +19,8 @@ import { CardComponent } from './card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { CardComponent } from './card/card.component';
     MatSelectModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: 'welcome', component: AppComponent},
+      { path: 'welcome', component: WelcomeComponent},
       { path: 'card', component: CardComponent}
     ])
   ],

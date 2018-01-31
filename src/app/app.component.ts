@@ -19,39 +19,7 @@ import {ApiRetrn} from './golf-course/api-retrns';
   `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  golfCourses: GolfCourse[];
-  selected: number;
+export class AppComponent {
 
-  constructor(private golfCourseService: GolfCourseService) {
-
-  }
-  golfCourse: GolfCourse;
-
-
-  ngOnInit() {
-    this.golfCourseService.getGolfCourses().subscribe((golfCourses: ApiRetrn) => {
-      this.golfCourses = golfCourses.courses;
-      console.log(this.golfCourses);
-      console.log(this);
-      // const courses = this.golfCourses;
-      // console.log(this.golfCourses === golfCourses);
-    });
-}
-
-  runThis(courseId: Observable<GolfCourse>) {
-    this.golfCourseService.getCourse(this.selected).subscribe((response: any) => {
-      // console.log(golfCourses);
-      this.golfCourse = response.course;
-      // let teeTypes: any = golfCourses.courses;
-      // console.log(teeTypes);
-      // console.log(this.golfCourses);
-      // console.log(this.golfCourses === golfCourses);
-    });
-  }
-
-  teeTypes(tee) {
-    console.log(tee);
-  }
 }
 
