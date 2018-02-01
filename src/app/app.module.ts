@@ -12,6 +12,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { CardComponent } from './card/card.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {MaterialModule} from './material/material.module';
 
 
 
@@ -26,6 +27,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     HttpClientModule,
     CommonModule,
+    MaterialModule,
     FormsModule,
     MatSelectModule,
     BrowserAnimationsModule,

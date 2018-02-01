@@ -1,15 +1,17 @@
 <div>
   <mat-form-field>
-    <mat-select [(ngModel)]="selected" (change)="runThis()">
-      <mat-option [value]='course.id' class="courses" *ngFor="let course of golfCourses">{{course.name}}</mat-option>
+    <mat-select [(ngModel)]="golfCourse" (change)="runThis()">
+      <mat-option [value]='course' class="courses" *ngFor="let course of golfCourses">{{course.name}}</mat-option>
     </mat-select>
 
   </mat-form-field>
   <mat-form-field *ngIf="golfCourse">
-    <mat-select [(ngModel)]="selected" (change)="teeTypes(selected)">
+    <mat-select [(ngModel)]="golfCourse.id" (change)="teeTypes(golfCourse.id)">
       <mat-option [value]="teeTypes" *ngFor="let teeTypes of golfCourse.tee_types">{{teeTypes.tee_type}}</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <div *ngIf="golfCourse">Holes: {{golfCourse.hole_count}}</div>
 </div>
 
 

@@ -15,13 +15,13 @@ import {Observable} from 'rxjs/Observable';
 })
 export class WelcomeComponent implements OnInit {
   golfCourses: GolfCourse[];
-  selected: number;
+  golfCourse: GolfCourse;
+  selected: GolfCourse;
+  numHoles: number;
 
   constructor(private golfCourseService: GolfCourseService) {
 
   }
-  golfCourse: GolfCourse;
-
 
   ngOnInit() {
     this.golfCourseService.getGolfCourses().subscribe((golfCourses: ApiRetrn) => {
@@ -34,13 +34,15 @@ export class WelcomeComponent implements OnInit {
   }
 
   runThis(courseId: Observable<GolfCourse>) {
-    this.golfCourseService.getCourse(this.selected).subscribe((response: any) => {
+    this.golfCourseService.getCourse(this.golfCourse.id).subscribe((response: any) => {
       // console.log(golfCourses);
       this.golfCourse = response.course;
       // let teeTypes: any = golfCourses.courses;
       // console.log(teeTypes);
-      // console.log(this.golfCourses);
+      console.log(this.golfCourses);
+      console.log(response);
       // console.log(this.golfCourses === golfCourses);
+      // return response;
     });
   }
 
