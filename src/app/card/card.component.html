@@ -1,4 +1,4 @@
-<div class="example-container mat-elevation-z8">
+<div  *ngIf="numHoles" class="example-container mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
@@ -7,7 +7,7 @@
     <!-- Position Column -->
     <ng-container [matColumnDef]="col" *ngFor="let col of displayedColumns">
       <mat-header-cell *matHeaderCellDef> {{col | uppercase}}</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      <mat-cell *matCellDef="let scoreCard"> {{scoreCard[col]}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

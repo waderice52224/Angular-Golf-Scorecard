@@ -8,6 +8,7 @@ import {ApiRetrn} from './api-retrns';
 export class GolfCourseService {
 
   url = 'https://golf-courses-api.herokuapp.com';
+  currentCourse;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -23,4 +24,14 @@ export class GolfCourseService {
   getCourse(courseId): Observable<GolfCourse> {
     return this.httpClient.get<GolfCourse>(`${this.url}/courses/${courseId}`);
   }
+
+  setCurrentCourse(g) {
+    this.currentCourse = g;
+  }
+
+  getGolfCourse(){
+    return this.currentCourse;
+  }
+
+
 }

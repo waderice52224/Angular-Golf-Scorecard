@@ -17,10 +17,8 @@ export class WelcomeComponent implements OnInit {
   golfCourses: GolfCourse[];
   golfCourse: GolfCourse;
   selected: GolfCourse;
-  numHoles: number;
 
   constructor(private golfCourseService: GolfCourseService) {
-
   }
 
   ngOnInit() {
@@ -48,5 +46,6 @@ export class WelcomeComponent implements OnInit {
 
   teeTypes(tee) {
     console.log(tee);
+    this.golfCourseService.setCurrentCourse(this.golfCourse);
   }
 }
